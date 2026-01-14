@@ -1,0 +1,180 @@
+:root {
+        --primary-color: #435ebe;
+        --secondary-color: #6c757d;
+        --sidebar-bg: #ffffff;
+        --main-bg: #f2f7ff;
+        --text-color: #25396f;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--main-bg);
+        color: var(--text-color);
+        overflow-x: hidden;
+      }
+
+      /* Sidebar Styling */
+      .sidebar {
+        width: 280px;
+        height: 100vh;
+        position: fixed; /* Tetap fixed di desktop */
+        top: 0;
+        left: 0;
+        background: var(--sidebar-bg);
+        z-index: 1045; /* Z-index Bootstrap Offcanvas */
+        border-right: 1px solid #e9ecef;
+        transition: transform 0.3s ease-in-out;
+        /* Scrollable sidebar content if needed */
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* UBAHAN PENTING: 
+         Kita menimpa variabel width offcanvas bootstrap agar sesuai dengan desain kamu (280px) */
+      .offcanvas-start {
+        --bs-offcanvas-width: 280px;
+      }
+
+      .sidebar-header {
+        padding: 2rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Agar tombol close ada di kanan */
+        gap: 10px;
+      }
+
+      .sidebar-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        overflow-y: auto; /* Agar menu bisa discroll jika panjang */
+      }
+
+      .sidebar-menu li {
+        padding: 0.5rem 1.5rem;
+      }
+
+      .sidebar-menu a {
+        text-decoration: none;
+        color: #607080;
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        border-radius: 10px;
+        transition: 0.3s;
+        font-weight: 500;
+      }
+
+      .sidebar-menu a:hover,
+      .sidebar-menu a.active {
+        background-color: var(--primary-color);
+        color: white;
+        box-shadow: 0 5px 10px rgba(67, 94, 190, 0.3);
+      }
+
+      .sidebar-menu a i {
+        margin-right: 15px;
+        font-size: 1.2rem;
+      }
+
+      /* Main Content */
+      .main-content {
+        margin-left: 280px; /* Jarak untuk Sidebar di Desktop */
+        padding: 2rem;
+        transition: all 0.3s;
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 991.98px) {
+        .main-content {
+          margin-left: 0; /* Di HP, konten mepet kiri */
+        }
+      }
+
+      /* --- CSS Card & Tabel (Sama seperti sebelumnya) --- */
+      .stats-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        transition: transform 0.3s;
+      }
+      .stats-card:hover {
+        transform: translateY(-5px);
+      }
+      .top-navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+      .card-modern {
+        background: #ffffff;
+        border-radius: 16px;
+        border: none;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+      }
+      .table-header-area {
+        padding: 1.5rem;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      .table > :not(caption) > * > * {
+        padding: 1rem 1rem;
+        border-bottom-color: #f4f6f8;
+      }
+      .table thead th {
+        background-color: #f9fafb;
+        color: #637381;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-bottom: 0;
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+      }
+      .product-avatar {
+        width: 48px;
+        height: 48px;
+        object-fit: cover;
+        border-radius: 10px;
+        background-color: #f1f1f1;
+      }
+      .badge-pill {
+        padding: 0.5em 1em;
+        font-weight: 600;
+        border-radius: 30px;
+      }
+      .badge-soft-success {
+        background-color: #e8f5e9;
+        color: #2e7d32;
+      }
+      .badge-soft-warning {
+        background-color: #fff8e1;
+        color: #f57c00;
+      }
+      .badge-soft-secondary {
+        background-color: #f5f5f5;
+        color: #616161;
+      }
+      .btn-action {
+        width: 35px;
+        height: 35px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        border: none;
+        background: transparent;
+        color: #919eab;
+        transition: all 0.2s;
+      }
+      .btn-action:hover {
+        background-color: #eff2f5;
+        color: var(--primary-color);
+      }
+      .btn-action.delete:hover {
+        background-color: #ffebee;
+        color: #c62828;
+      }
