@@ -7,7 +7,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <h6 class="text-muted mb-2">Total Produk</h6>
-                            <h4 class="fw-bold mb-0">100</h4>
+                            <h4 class="fw-bold mb-0">{{ $totalProduk }}</h4>
                         </div>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <h6 class="text-muted mb-2">Produk Unggulan</h6>
-                            <h4 class="fw-bold mb-0">90</h4>
+                            <h4 class="fw-bold mb-0">{{ $produkUnggulan }}</h4>
                         </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <h6 class="text-muted mb-2">Produk Pria</h6>
-                            <h4 class="fw-bold mb-0">100</h4>
+                            <h4 class="fw-bold mb-0">{{ $produkPria }}</h4>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
                             <h6 class="text-muted mb-2">Produk Wanita</h6>
-                            <h4 class="fw-bold mb-0">90</h4>
+                            <h4 class="fw-bold mb-0">{{ $produkWanita }}</h4>
                         </div>
                     </div>
                 </div>

@@ -12,7 +12,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $produk = Produk::all();
-        return view('client.pages.home', compact('produk'));
+        $katalog = Produk::where('tipe', 'standard')->get();
+        $unggulan = Produk::where('tipe', 'unggulan')->get();
+        $totalProduk = Produk::count();
+        return view('client.pages.home', compact('katalog', 'unggulan', 'totalProduk'));
     }
 }

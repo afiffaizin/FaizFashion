@@ -145,7 +145,7 @@
       }
       .card-img-wrapper {
         overflow: hidden;
-        height: 350px;
+        /* height: 350px; */
         position: relative;
       }
       .card-img-top {

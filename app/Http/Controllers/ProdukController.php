@@ -9,6 +9,10 @@ class ProdukController extends Controller
 {
     public function index(Request $request)
     {
+        $totalProduk   = Produk::count();
+        $produkUnggulan = Produk::where('tipe', 'unggulan')->count();
+        $produkPria    = Produk::where('kategori', 'Pria')->count();
+        $produkWanita  = Produk::where('kategori', 'Wanita')->count();
         $query = Produk::query();
 
         // Search by name or description
@@ -32,7 +36,7 @@ class ProdukController extends Controller
 
         $produk = $query->latest()->paginate(3)->withQueryString();
 
-        return view('admin.pages.dashboard', compact('produk'));
+        return view('admin.pages.dashboard', compact('produk', 'totalProduk', 'produkUnggulan', 'produkPria', 'produkWanita'));
     }
 
     public function addProduk()

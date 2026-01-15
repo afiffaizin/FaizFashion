@@ -96,6 +96,7 @@
     </section>
 
     {{-- Featured Products --}}
+
     <section id="featured" class="section-padding" style="background-color: var(--brand-dark); color: white">
         <div class="container">
             <div class="d-flex justify-content-between align-items-end mb-5">
@@ -108,27 +109,35 @@
                     SEMUA</a>
             </div>
 
-            <div class="col-md-4">
-                <div class="card-product bg-dark text-white border-0 position-relative p-3 rounded-3">
-                    <div class="card-img-wrapper rounded overflow-hidden">
-                        <span
-                            class="badge bg-danger text-white position-absolute top-0 start-0 m-3 py-2 px-3">LIMITED</span>
-                        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1000&auto=format&fit=crop"
-                            class="card-img-top w-100" style="height: 300px; object-fit: cover;" alt="Jacket" />
-                    </div>
-                    <div class="mt-3">
-                        <h4 class="mb-1">Urban Leather</h4>
-                        <p class="text-secondary small">Outerwear</p>
+            <div class="row g-4">
+                @foreach ($unggulan as $item)
+                    <div class="col-6 col-md-4">
+                        <div class="card-product bg-dark text-white border-0 position-relative p-3 rounded-3 h-100">
+                            <div class="card-img-wrapper rounded overflow-hidden">
+                                <span
+                                    class="badge bg-danger text-white position-absolute top-0 start-0 m-3 py-2 px-3">LIMITED</span>
+                                <img src="{{ asset('uploads/produk/' . $item->gambar) }}" class="card-img-top w-100"
+                                    style="height: 350px; object-fit: cover;" alt="Jacket" />
+                            </div>
+                            <div class="mt-4">
+                                <h4 class="mb-1">{{ $item->nama_produk }}</h4>
+                                <p class="card-text small text-white m-0">{{ $item->deskripsi }}</p>
+                                <p class="text-secondary small">{{ $item->kategori }}</p>
 
-                        <div class="d-flex justify-content-between align-items-center pt-2">
-                            <span class="h5 mb-0 fw-bold" style="color: #d4af37">Rp 899.000</span>
-                            <button class="btn btn-light btn-sm rounded-pill px-4 fw-bold shadow-sm">
-                                Pesan
-                            </button>
+                                <div class="d-flex justify-content-between align-items-center pt-2">
+                                    <span class="h5 mb-0 fw-bold" style="color: #d4af37">Rp
+                                        {{ number_format($item->harga, 0, ',', '.') }}</span>
+                                    <button class="btn btn-light btn-sm rounded-pill px-4 fw-bold shadow-sm">
+                                        Pesan
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
+
+
         </div>
     </section>
 
@@ -168,7 +177,7 @@
             </div>
 
             <div class="row g-4" id="product-grid">
-                @foreach ($produk as $item)
+                @foreach ($katalog as $item)
                     <div class="col-6 col-md-4 product-item {{ $item->kategori }}">
                         <div class="card card-product h-100">
                             <div class="card-img-wrapper">
