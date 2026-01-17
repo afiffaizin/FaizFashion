@@ -9,19 +9,41 @@
      </div>
 
      <div class="d-flex align-items-center gap-3">
-         <div class="position-relative d-none d-md-block"></div>
+         <!-- User Settings Dropdown -->
          <div class="dropdown">
-             <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark"
-                 data-bs-toggle="dropdown">
-                 <img src="https://ui-avatars.com/api/?name=Admin+User&background=435ebe&color=fff"
-                     class="rounded-circle me-2" width="40" alt="Avatar" />
-                 <div class="d-none d-md-block text-start">
-                     <div class="fw-bold small">Administrator</div>
-                     <div class="text-muted" style="font-size: 0.75rem">Super Admin</div>
-                 </div>
-             </a>
-             <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg">
-                 <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+             <button class="btn btn-sm btn-light dropdown-toggle d-flex align-items-center gap-2 shadow-sm"
+                 type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 <i class="bi bi-person-circle fs-5"></i>
+                 <span class="d-none d-md-inline text-dark">{{ Auth::user()->name }}</span>
+                 <i class="bi bi-chevron-down fs-6"></i>
+             </button>
+             <ul class="dropdown-menu dropdown-menu-end shadow">
+                 <li>
+                     <h6 class="dropdown-header">{{ Auth::user()->name }}</h6>
+                 </li>
+                 <li>
+                     <hr class="dropdown-divider">
+                 </li>
+                 <li>
+                     <a class="dropdown-item d-flex align-items-center gap-2" href="{{ route('profile.edit') }}">
+                         <i class="bi bi-person fs-5"></i>
+                         {{ __('Profile') }}
+                     </a>
+                 </li>
+                 <li>
+                     <hr class="dropdown-divider">
+                 </li>
+                 <li>
+                     <form method="POST" action="{{ route('logout') }}">
+                         @csrf
+                         <a class="dropdown-item d-flex align-items-center gap-2 text-danger"
+                             href="{{ route('logout') }}"
+                             onclick="event.preventDefault(); this.closest('form').submit();">
+                             <i class="bi bi-box-arrow-right fs-5"></i>
+                             {{ __('Log Out') }}
+                         </a>
+                     </form>
+                 </li>
              </ul>
          </div>
      </div>
